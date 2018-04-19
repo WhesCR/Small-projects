@@ -1,0 +1,79 @@
+html {
+  box-sizing: border-box;
+  background:#ffc600;
+  font-family:'helvetica neue';
+  font-size: 20px;
+  font-weight: 200;
+}
+body {
+  margin: 0;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.panels {
+  min-height:100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+.panel {
+  background:#6B0F9C;
+  box-shadow:inset 0 0 0 5px rgba(255,255,255,0.1);
+  color:white;
+  text-align: center;
+  align-items:center;
+  /* Safari transitionend event.propertyName === flex */
+  /* Chrome + FF transitionend event.propertyName === flex-grow */
+  transition:
+    font-size 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    flex 0.7s cubic-bezier(0.61,-0.19, 0.7,-0.11),
+    background 0.2s;
+  font-size: 20px;
+  background-size:cover;
+  background-position:center;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  display:flex;
+  flex-direction: column;
+}
+
+
+.panel1 { background-image:url(https://i.pinimg.com/originals/09/74/58/0974588595b274eb3fa009666e049955.jpg); }
+.panel2 { background-image:url(http://natbg.com/wp-content/uploads/2017/01/mountains-beautiful-view-houses-grass-lakes-sun-light-tree-mountains-landscapes-desktop-images.jpg); }
+.panel3 { background-image:url(http://www.zastavki.com/pictures/originals/2014/World___Australia_Beautiful_view_towards_the_Gold_Coast__Australia_058425_.jpg); }
+.panel4 { background-image:url(http://wallfon.com/download.php?id=13947); }
+.panel5 { background-image:url(https://photorator.com/photos/images/beautiful-view-in-haapsalu-estonia--8402.jpg); }
+
+.panel > * {
+  margin:0;
+  width: 100%;
+  transition:transform 0.5s;
+  flex: 1 0 auto;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.panel > *:first-child {transform: translateY(-100%); }
+.panel.open-active > *:first-child {transform: translateY(0); }
+.panel > *:last-child {transform: translateY(100%); }
+.panel.open-active > *:last-child {transform: translateY(0); }
+
+
+.panel p {
+  text-transform: uppercase;
+  font-family: 'Amatic SC', cursive;
+  text-shadow:0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
+  font-size: 2em;
+}
+.panel p:nth-child(2) {
+  font-size: 4em;
+}
+
+.panel.open {
+  flex:5;
+  font-size:40px;
+}
